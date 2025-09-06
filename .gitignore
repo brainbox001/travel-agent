@@ -1,0 +1,33 @@
+__pycache__/
+
+# Virtual Environment
+# Always exclude your Python virtual environment.
+venv/
+env/
+.venv/
+.env
+chroma_db
+
+# IDE specific files
+.vscode/ # VS Code
+.idea/   # IntelliJ IDEA / PyCharm
+*.sublime-project
+*.sublime-workspace
+*.DS_Store # macOS specific
+Thumbs.db  # Windows specific
+
+# Jupyter Notebook files (if you use them for testing/prototyping)
+.ipynb_checkpoints/
+
+# User-specific configurations (like Rasa X credentials)
+credentials.yml.bak
+endpoints.yml.bak
+
+# Any custom action build artifacts if you're compiling them
+dist/
+build/
+*.egg-info/
+
+# If you have data files that are too large or sensitive to be in Git
+# Example: If you manually download large pre-trained word embeddings
+# data/embeddings/
