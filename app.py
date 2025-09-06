@@ -2,7 +2,8 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
-import uvicorn
+# import uvicorn
+from agent import agent
 import json
 from main import graph
 from langchain.schema import BaseMessage
@@ -71,6 +72,16 @@ async def chat_home(thread_id: str = None):
     except Exception as e:
         print(f"error {e}")
         return {'error': 'An error occured, try again'}
+    
+
+@app.get("/train")
+async def train():
+    try:
+        await agent.ingest("faqs_and_policies.txt")
+        await agent.ingest("company_travel_policy.txt")
+        await agent.ingest("airline_policies.txt")
+    except Exception as e:
+        print(f"Error while ingesting - {e}")
 
 
 @app.post("/chat")
