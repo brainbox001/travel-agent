@@ -99,4 +99,4 @@ async def chat_endpoint(request: Request, thread_id: str):
     return StreamingResponse(event_stream(), media_type="text/event-stream")
 
 if __name__ == "__main__":
-    uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("server:app", host="0.0.0.0", port=7860)
