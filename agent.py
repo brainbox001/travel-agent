@@ -14,6 +14,9 @@ from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 load_dotenv()
 
+os.environ["HF_HOME"] = "/tmp"
+os.environ["TRANSFORMERS_CACHE"] = "/tmp"
+os.environ["HF_DATASETS_CACHE"] = "/tmp"
 
 # The embedding model
 embeddings = HuggingFaceEmbeddings(
