@@ -10,6 +10,5 @@ COPY . .
 # Install dependencies
 RUN pip install --no-cache-dir -U -r requirements.txt
 
-# Run both files in order
-# Replace `otherfile.py` with your second file’s name
-CMD python train.py & python server.py
+RUN python agent.py
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "7860"]
