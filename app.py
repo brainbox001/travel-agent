@@ -5,12 +5,12 @@ from fastapi.responses import StreamingResponse
 # import uvicorn
 from agent import agent
 import json
+import os
 from main import graph
 from langchain.schema import BaseMessage
 from memory import memory, USER_COUNT
 from dotenv import load_dotenv
 load_dotenv()
-import os
 
 
 app = FastAPI()
