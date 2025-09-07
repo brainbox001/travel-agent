@@ -8,13 +8,16 @@ import json
 from main import graph
 from langchain.schema import BaseMessage
 from memory import memory, USER_COUNT
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # frontend origin
+    allow_origins=[os.environ.get("FRONTEND_URL")],  # frontend origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
