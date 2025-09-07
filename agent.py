@@ -29,7 +29,7 @@ embeddings = HuggingFaceEmbeddings(
 vector_store = Chroma(
     collection_name="my_collection",
     embedding_function=embeddings,
-    persist_directory="./chroma_db",
+    persist_directory="/tmp/chroma_db",
 )
 
 
