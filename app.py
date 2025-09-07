@@ -80,11 +80,17 @@ async def chat_home(thread_id: str = None):
 @app.get("/train")
 async def train():
     try:
-        await agent.ingest("faqs_and_policies.txt")
-        await agent.ingest("company_travel_policy.txt")
-        await agent.ingest("airline_policies.txt")
+        id1 = await agent.ingest("faqs_and_policies.txt")
+        id2 = await agent.ingest("company_travel_policy.txt")
+        id3 = await agent.ingest("airline_policies.txt")
+        return {
+            "id1" : id1,
+            "id2" : id2,
+            "id3" : id3
+        }
     except Exception as e:
         print(f"Error while ingesting - {e}")
+        return {'error': 'An error occured, try again'}
 
 
 @app.post("/chat")
