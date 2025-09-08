@@ -15,7 +15,7 @@ class ToolExecutorNode:
         if not message :
             return {"context" : "No tool call was made for this question"}
 
-        # print(f"tools made by the brain llm : - {message}")
+        print(f"tools made by the brain llm : - {message}")
         # Create a list of tasks for each tool call
         tasks = []
         for tool_call in message.tool_calls:

@@ -5,16 +5,19 @@ from fastapi.responses import StreamingResponse
 # import uvicorn
 from agent import agent
 import json
+import os
 from main import graph
 from langchain.schema import BaseMessage
 from memory import memory, USER_COUNT
+from dotenv import load_dotenv
+load_dotenv()
 
 
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # frontend origin
+    allow_origins=[os.environ.get("FRONTEND_URL")],  # frontend origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -77,11 +80,17 @@ async def chat_home(thread_id: str = None):
 @app.get("/train")
 async def train():
     try:
-        await agent.ingest("faqs_and_policies.txt")
-        await agent.ingest("company_travel_policy.txt")
-        await agent.ingest("airline_policies.txt")
+        id1 = await agent.ingest("faqs_and_policies.txt")
+        id2 = await agent.ingest("company_travel_policy.txt")
+        id3 = await agent.ingest("airline_policies.txt")
+        return {
+            "id1" : id1,
+            "id2" : id2,
+            "id3" : id3
+        }
     except Exception as e:
         print(f"Error while ingesting - {e}")
+        return {'error': 'An error occured, try again'}
 
 
 @app.post("/chat")
