@@ -120,9 +120,9 @@ async def brain_node(state : State) -> dict:
                 - For each question you extracted, check for pronouns that are not a type of personal   pronoun(examples, "I", "me", "we", "us"), and replace them with their appropriate reference from "Past_Chats" and update the question to reflect the change.
 
                 - If there is no appropriate reference for a pronoun, just ignore and move on.
-                - Then based on the updated question, decide which tool call to make.
+                - Then based on the updated question, decide whether to make a tool call or give a direct response.
 
-            3. unfamiliar questions or questions you marked as not having a function call should be sent to the unfamiliar tools
+            3. unfamiliar questions should be sent to the unfamiliar tool.
 
             4. If there are no past interactions with the user, you can go ahead to make the tool calls for all the questions you extracted.
 
