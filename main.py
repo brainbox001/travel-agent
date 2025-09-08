@@ -136,8 +136,8 @@ async def brain_node(state : State) -> dict:
         print(f"Error in brain_node: {e}")
         return {"messages": [AIMessage(content=f"Error: {e}")]}
     except Exception as e:
-        print(f"An unexpected error occurred in brain_node: {e}")
-        return {"messages": [AIMessage(content=f"An unexpected error occurred. Please try again.")]}
+        print(f"An unexpected error of type {type(e)} occurred in brain_node: {e}")
+        return {"messages": [AIMessage(content=f"An unexpected error occurred on the brain. Please try again.")]}
 
 
 # ----------------------------------------------------------------------------------------------------
