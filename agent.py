@@ -64,7 +64,7 @@ class Agent:
     # The querying pipeline
     async def query(self, query: str):
         print(f"Running query: '{query}'")
-        retriever = vector_store.as_retriever(search_kwargs={"k": 3})
+        retriever = vector_store.as_retriever(search_kwargs={"k": 4})
 
         # Multi-query retriever
         multi_retriever = MultiQueryRetriever.from_llm(
