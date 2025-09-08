@@ -79,7 +79,7 @@ class Agent:
         )
 
         docs = await compressed_retriever.ainvoke(query)
-        print(f"Docs retrieved for question - {query} : {docs}")
+        print(f"Docs retrieved for the question - {query} : {docs}")
     
         return [
         {
