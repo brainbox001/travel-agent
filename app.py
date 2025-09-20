@@ -52,7 +52,7 @@ async def chat_home(thread_id: str = None):
 
     config = {"configurable": {"thread_id": thread_id}}
 
-    print(f"the thread id - {thread_id}")
+    print(f"the thread ID - {thread_id}")
 
     try:
         past_convo = await memory.aget(config=config)
