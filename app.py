@@ -48,11 +48,11 @@ async def chat_home(thread_id: str = None):
     if thread_id is None:
         thread_id = str(USER_COUNT)
         USER_COUNT += 1
-    # print(f"user count now {USER_COUNT}")
+    print(f"user count now {USER_COUNT}")
 
     config = {"configurable": {"thread_id": thread_id}}
 
-    # print(f"the thread id - {thread_id}")
+    print(f"the thread id - {thread_id}")
 
     try:
         past_convo = await memory.aget(config=config)
